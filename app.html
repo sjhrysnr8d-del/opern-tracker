@@ -13567,7 +13567,7 @@ const SEED_AUSHILFE = [{
    offiziellen BSO-Spielplan geprüft und sind bereits in den Werk-Totals oben
    verrechnet (Nabucco +4, Parsifal +3, Il Trovatore +5, Turandot +7). */
 const SEED_CANDIDATES = [];
-const STORAGE_KEY = "opern-tracker-v55";
+const STORAGE_KEY = "opern-tracker-v56";
 const fmtDate = iso => {
   if (!iso) return "—";
   const [y, m, d] = iso.split("-");
@@ -14127,10 +14127,10 @@ function SeasonSection({
     style: styles.repRowBtn,
     onClick: () => setExpandedSeason(expandedSeason === season ? null : season)
   }, /*#__PURE__*/React.createElement("span", {
-    style: styles.repRank
+    style: styles.seasonRank
   }, season), /*#__PURE__*/React.createElement("span", {
     style: styles.repName
-  }, "Spielzeit ", season), /*#__PURE__*/React.createElement("span", {
+  }, "Spielzeit"), /*#__PURE__*/React.createElement("span", {
     style: styles.repCount
   }, rows.length, "×")), expandedSeason === season && /*#__PURE__*/React.createElement("div", {
     style: styles.repDetail
@@ -14634,6 +14634,13 @@ const styles = {
     fontSize: 11,
     color: PALETTE.gold,
     width: 20,
+    flexShrink: 0
+  },
+  seasonRank: {
+    fontFamily: "'JetBrains Mono', monospace",
+    fontSize: 13,
+    color: PALETTE.gold,
+    width: 78,
     flexShrink: 0
   },
   repName: {
