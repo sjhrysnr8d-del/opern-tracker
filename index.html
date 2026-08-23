@@ -318,7 +318,6 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
 <script>
 const { useState, useEffect, useMemo } = React;
 
-import { jsxDEV as _jsxDEV } from "react/jsx-dev-runtime";
 /* ---------- Seed data (Stand 30.12.2025) ---------- */
 const SEED_BSO = [{
   name: "Der fliegende Holländer",
@@ -13261,286 +13260,235 @@ function OpernTracker() {
     setShowForm(false);
   };
   if (loading) {
-    return /*#__PURE__*/_jsxDEV("div", {
+    return /*#__PURE__*/React.createElement("div", {
       style: {
         ...styles.page,
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
-      },
-      children: /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          color: PALETTE.gold,
-          fontFamily: "'JetBrains Mono', monospace"
-        },
-        children: "Lade Programm …"
-      }, void 0, false)
-    }, void 0, false);
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        color: PALETTE.gold,
+        fontFamily: "'JetBrains Mono', monospace"
+      }
+    }, "Lade Programm …"));
   }
   const currentList = formTarget === "bso" ? bso : formTarget === "gpt" ? gpt : aushilfe;
-  return /*#__PURE__*/_jsxDEV("div", {
-    style: styles.page,
-    children: [/*#__PURE__*/_jsxDEV(FontImports, {}, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: styles.vignette
-    }, void 0, false), /*#__PURE__*/_jsxDEV("header", {
-      style: styles.hero,
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: styles.heroTop,
-        children: [/*#__PURE__*/_jsxDEV("span", {
-          style: styles.eyebrow,
-          children: "Opern-Statistik"
-        }, void 0, false), /*#__PURE__*/_jsxDEV(SaveIndicator, {
-          state: saveState
-        }, void 0, false)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: styles.heroMain,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: styles.bigNumber,
-          children: bsoTotal
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: styles.bigNumberLabel,
-          children: ["Vorstellungen", /*#__PURE__*/_jsxDEV("br", {}, void 0, false), "Bayerische Staatsoper"]
-        }, void 0, true)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: styles.miniStats,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: styles.miniStat,
-          children: [/*#__PURE__*/_jsxDEV("span", {
-            style: styles.miniStatNum,
-            children: gptTotal
-          }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-            style: styles.miniStatLabel,
-            children: "Gärtnerplatztheater"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: styles.miniStatDivider
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: styles.miniStat,
-          children: [/*#__PURE__*/_jsxDEV("span", {
-            style: styles.miniStatNum,
-            children: aushilfeTotal
-          }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-            style: styles.miniStatLabel,
-            children: "Aushilfe andere Häuser"
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-        style: styles.heroFoot,
-        children: [/*#__PURE__*/_jsxDEV("span", {
-          children: "1. Vorstellung: 11.11.2012 · Lohengrin"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            opacity: 0.6
-          },
-          children: [bso.length + gpt.length, " Werke gesamt"]
-        }, void 0, true)]
-      }, void 0, true)]
-    }, void 0, true), openCandidates.length > 0 && /*#__PURE__*/_jsxDEV("section", {
-      style: styles.section,
-      children: [/*#__PURE__*/_jsxDEV(SectionTitle, {
-        eyebrow: "Zur Prüfung · BSO",
-        title: "Im Kalender gefundene Vorstellungen",
-        note: `${openCandidates.length} seit dem 30.12.2025 — bitte einzeln bestätigen`
-      }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-        style: styles.candidateList,
-        children: openCandidates.map(c => /*#__PURE__*/_jsxDEV("div", {
-          style: styles.ticket,
-          children: [/*#__PURE__*/_jsxDEV("div", {
-            style: styles.ticketPerf
-          }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-            style: styles.ticketBody,
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              style: styles.ticketWerk,
-              children: c.werk
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: styles.ticketMeta,
-              children: [fmtDate(c.datum), " · ", c.ort]
-            }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-              style: styles.ticketSource,
-              children: c.quelle
-            }, void 0, false)]
-          }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-            style: styles.ticketActions,
-            children: [/*#__PURE__*/_jsxDEV("button", {
-              style: styles.btnAccept,
-              onClick: () => resolveCandidate(c.id, true),
-              children: "Übernehmen"
-            }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-              style: styles.btnReject,
-              onClick: () => resolveCandidate(c.id, false),
-              children: "Verwerfen"
-            }, void 0, false)]
-          }, void 0, true)]
-        }, c.id, true))
-      }, void 0, false)]
-    }, void 0, true), /*#__PURE__*/_jsxDEV("section", {
-      style: styles.section,
-      children: [/*#__PURE__*/_jsxDEV(SectionTitle, {
-        eyebrow: "Eintrag",
-        title: "Neue Vorstellung erfassen"
-      }, void 0, false), !showForm ? /*#__PURE__*/_jsxDEV("div", {
-        style: {
-          display: "flex",
-          gap: 10,
-          flexWrap: "wrap"
-        },
-        children: [/*#__PURE__*/_jsxDEV("button", {
-          style: styles.btnPrimary,
-          onClick: () => {
-            setFormTarget("bso");
-            setForm(f => ({
-              ...f,
-              ort: "BSO"
-            }));
-            setShowForm(true);
-          },
-          children: "+ BSO"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-          style: styles.btnPrimary,
-          onClick: () => {
-            setFormTarget("gpt");
-            setForm(f => ({
-              ...f,
-              ort: "GPT"
-            }));
-            setShowForm(true);
-          },
-          children: "+ Gärtnerplatztheater"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-          style: styles.btnPrimary,
-          onClick: () => {
-            setFormTarget("aushilfe");
-            setForm(f => ({
-              ...f,
-              ort: ""
-            }));
-            setShowForm(true);
-          },
-          children: "+ Aushilfe"
-        }, void 0, false)]
-      }, void 0, true) : /*#__PURE__*/_jsxDEV("form", {
-        onSubmit: submitForm,
-        style: styles.form,
-        children: [/*#__PURE__*/_jsxDEV("div", {
-          style: styles.formHeader,
-          children: formTarget === "bso" ? "Bayerische Staatsoper" : formTarget === "gpt" ? "Gärtnerplatztheater" : "Aushilfe bei anderen Häusern"
-        }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-          style: styles.formRow,
-          children: [/*#__PURE__*/_jsxDEV("label", {
-            style: styles.label,
-            children: "Werk"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("select", {
-            style: styles.input,
-            value: form.werk,
-            onChange: e => setForm({
-              ...form,
-              werk: e.target.value
-            }),
-            required: true,
-            children: [/*#__PURE__*/_jsxDEV("option", {
-              value: "",
-              disabled: true,
-              children: "Werk wählen …"
-            }, void 0, false), currentList.map(p => /*#__PURE__*/_jsxDEV("option", {
-              value: p.name,
-              children: p.name
-            }, p.name, false)), /*#__PURE__*/_jsxDEV("option", {
-              value: "__neu__",
-              children: "+ neues Werk …"
-            }, void 0, false)]
-          }, void 0, true)]
-        }, void 0, true), form.werk === "__neu__" && /*#__PURE__*/_jsxDEV("div", {
-          style: styles.formRow,
-          children: [/*#__PURE__*/_jsxDEV("label", {
-            style: styles.label,
-            children: "Neuer Titel"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("input", {
-            style: styles.input,
-            value: form.neuesWerk,
-            onChange: e => setForm({
-              ...form,
-              neuesWerk: e.target.value
-            }),
-            placeholder: "z. B. Rusalka",
-            required: true
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: styles.formRow,
-          children: [/*#__PURE__*/_jsxDEV("label", {
-            style: styles.label,
-            children: "Datum"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("input", {
-            type: "date",
-            style: styles.input,
-            value: form.datum,
-            onChange: e => setForm({
-              ...form,
-              datum: e.target.value
-            }),
-            required: true
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: styles.formRow,
-          children: [/*#__PURE__*/_jsxDEV("label", {
-            style: styles.label,
-            children: "Ort"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("input", {
-            style: styles.input,
-            value: form.ort,
-            onChange: e => setForm({
-              ...form,
-              ort: e.target.value
-            }),
-            placeholder: formTarget === "aushilfe" ? "z. B. Augsburg" : "BSO"
-          }, void 0, false)]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("div", {
-          style: {
-            display: "flex",
-            gap: 10,
-            marginTop: 6
-          },
-          children: [/*#__PURE__*/_jsxDEV("button", {
-            type: "submit",
-            style: styles.btnPrimary,
-            children: "Ticket ausstellen"
-          }, void 0, false), /*#__PURE__*/_jsxDEV("button", {
-            type: "button",
-            style: styles.btnGhost,
-            onClick: () => setShowForm(false),
-            children: "Abbrechen"
-          }, void 0, false)]
-        }, void 0, true)]
-      }, void 0, true)]
-    }, void 0, true), /*#__PURE__*/_jsxDEV(CastSearchSection, {
-      bso: bso,
-      gpt: gpt,
-      aushilfe: aushilfe
-    }, void 0, false), /*#__PURE__*/_jsxDEV(RepertoireSection, {
-      eyebrow: "Repertoire",
-      title: "Bayerische Staatsoper",
-      note: `${bsoTotal} Vorstellungen · nach Anzahl sortiert`,
-      list: bso,
-      expanded: expanded,
-      setExpanded: setExpanded
-    }, void 0, false), /*#__PURE__*/_jsxDEV(RepertoireSection, {
-      eyebrow: "Andere Institution",
-      title: "Gärtnerplatztheater (GPT)",
-      note: `${gptTotal} Vorstellungen · nicht Teil der BSO-Zahl`,
-      list: gpt,
-      expanded: expanded,
-      setExpanded: setExpanded
-    }, void 0, false), /*#__PURE__*/_jsxDEV(RepertoireSection, {
-      eyebrow: "Gastspiele",
-      title: "Aushilfe bei anderen Häusern",
-      note: `${aushilfeTotal} Vorstellungen · nicht Teil der BSO-Zahl`,
-      list: aushilfe,
-      expanded: expanded,
-      setExpanded: setExpanded
-    }, void 0, false), toast && /*#__PURE__*/_jsxDEV("div", {
-      style: styles.toast,
-      children: toast
-    }, void 0, false)]
-  }, void 0, true);
+  return /*#__PURE__*/React.createElement("div", {
+    style: styles.page
+  }, /*#__PURE__*/React.createElement(FontImports, null), /*#__PURE__*/React.createElement("div", {
+    style: styles.vignette
+  }), /*#__PURE__*/React.createElement("header", {
+    style: styles.hero
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.heroTop
+  }, /*#__PURE__*/React.createElement("span", {
+    style: styles.eyebrow
+  }, "Opern-Statistik"), /*#__PURE__*/React.createElement(SaveIndicator, {
+    state: saveState
+  })), /*#__PURE__*/React.createElement("div", {
+    style: styles.heroMain
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.bigNumber
+  }, bsoTotal), /*#__PURE__*/React.createElement("div", {
+    style: styles.bigNumberLabel
+  }, "Vorstellungen", /*#__PURE__*/React.createElement("br", null), "Bayerische Staatsoper")), /*#__PURE__*/React.createElement("div", {
+    style: styles.miniStats
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.miniStat
+  }, /*#__PURE__*/React.createElement("span", {
+    style: styles.miniStatNum
+  }, gptTotal), /*#__PURE__*/React.createElement("span", {
+    style: styles.miniStatLabel
+  }, "Gärtnerplatztheater")), /*#__PURE__*/React.createElement("div", {
+    style: styles.miniStatDivider
+  }), /*#__PURE__*/React.createElement("div", {
+    style: styles.miniStat
+  }, /*#__PURE__*/React.createElement("span", {
+    style: styles.miniStatNum
+  }, aushilfeTotal), /*#__PURE__*/React.createElement("span", {
+    style: styles.miniStatLabel
+  }, "Aushilfe andere Häuser"))), /*#__PURE__*/React.createElement("div", {
+    style: styles.heroFoot
+  }, /*#__PURE__*/React.createElement("span", null, "1. Vorstellung: 11.11.2012 · Lohengrin"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      opacity: 0.6
+    }
+  }, bso.length + gpt.length, " Werke gesamt"))), openCandidates.length > 0 && /*#__PURE__*/React.createElement("section", {
+    style: styles.section
+  }, /*#__PURE__*/React.createElement(SectionTitle, {
+    eyebrow: "Zur Prüfung · BSO",
+    title: "Im Kalender gefundene Vorstellungen",
+    note: `${openCandidates.length} seit dem 30.12.2025 — bitte einzeln bestätigen`
+  }), /*#__PURE__*/React.createElement("div", {
+    style: styles.candidateList
+  }, openCandidates.map(c => /*#__PURE__*/React.createElement("div", {
+    key: c.id,
+    style: styles.ticket
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.ticketPerf
+  }), /*#__PURE__*/React.createElement("div", {
+    style: styles.ticketBody
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.ticketWerk
+  }, c.werk), /*#__PURE__*/React.createElement("div", {
+    style: styles.ticketMeta
+  }, fmtDate(c.datum), " · ", c.ort), /*#__PURE__*/React.createElement("div", {
+    style: styles.ticketSource
+  }, c.quelle)), /*#__PURE__*/React.createElement("div", {
+    style: styles.ticketActions
+  }, /*#__PURE__*/React.createElement("button", {
+    style: styles.btnAccept,
+    onClick: () => resolveCandidate(c.id, true)
+  }, "Übernehmen"), /*#__PURE__*/React.createElement("button", {
+    style: styles.btnReject,
+    onClick: () => resolveCandidate(c.id, false)
+  }, "Verwerfen")))))), /*#__PURE__*/React.createElement("section", {
+    style: styles.section
+  }, /*#__PURE__*/React.createElement(SectionTitle, {
+    eyebrow: "Eintrag",
+    title: "Neue Vorstellung erfassen"
+  }), !showForm ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      flexWrap: "wrap"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    style: styles.btnPrimary,
+    onClick: () => {
+      setFormTarget("bso");
+      setForm(f => ({
+        ...f,
+        ort: "BSO"
+      }));
+      setShowForm(true);
+    }
+  }, "+ BSO"), /*#__PURE__*/React.createElement("button", {
+    style: styles.btnPrimary,
+    onClick: () => {
+      setFormTarget("gpt");
+      setForm(f => ({
+        ...f,
+        ort: "GPT"
+      }));
+      setShowForm(true);
+    }
+  }, "+ Gärtnerplatztheater"), /*#__PURE__*/React.createElement("button", {
+    style: styles.btnPrimary,
+    onClick: () => {
+      setFormTarget("aushilfe");
+      setForm(f => ({
+        ...f,
+        ort: ""
+      }));
+      setShowForm(true);
+    }
+  }, "+ Aushilfe")) : /*#__PURE__*/React.createElement("form", {
+    onSubmit: submitForm,
+    style: styles.form
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.formHeader
+  }, formTarget === "bso" ? "Bayerische Staatsoper" : formTarget === "gpt" ? "Gärtnerplatztheater" : "Aushilfe bei anderen Häusern"), /*#__PURE__*/React.createElement("div", {
+    style: styles.formRow
+  }, /*#__PURE__*/React.createElement("label", {
+    style: styles.label
+  }, "Werk"), /*#__PURE__*/React.createElement("select", {
+    style: styles.input,
+    value: form.werk,
+    onChange: e => setForm({
+      ...form,
+      werk: e.target.value
+    }),
+    required: true
+  }, /*#__PURE__*/React.createElement("option", {
+    value: "",
+    disabled: true
+  }, "Werk wählen …"), currentList.map(p => /*#__PURE__*/React.createElement("option", {
+    key: p.name,
+    value: p.name
+  }, p.name)), /*#__PURE__*/React.createElement("option", {
+    value: "__neu__"
+  }, "+ neues Werk …"))), form.werk === "__neu__" && /*#__PURE__*/React.createElement("div", {
+    style: styles.formRow
+  }, /*#__PURE__*/React.createElement("label", {
+    style: styles.label
+  }, "Neuer Titel"), /*#__PURE__*/React.createElement("input", {
+    style: styles.input,
+    value: form.neuesWerk,
+    onChange: e => setForm({
+      ...form,
+      neuesWerk: e.target.value
+    }),
+    placeholder: "z. B. Rusalka",
+    required: true
+  })), /*#__PURE__*/React.createElement("div", {
+    style: styles.formRow
+  }, /*#__PURE__*/React.createElement("label", {
+    style: styles.label
+  }, "Datum"), /*#__PURE__*/React.createElement("input", {
+    type: "date",
+    style: styles.input,
+    value: form.datum,
+    onChange: e => setForm({
+      ...form,
+      datum: e.target.value
+    }),
+    required: true
+  })), /*#__PURE__*/React.createElement("div", {
+    style: styles.formRow
+  }, /*#__PURE__*/React.createElement("label", {
+    style: styles.label
+  }, "Ort"), /*#__PURE__*/React.createElement("input", {
+    style: styles.input,
+    value: form.ort,
+    onChange: e => setForm({
+      ...form,
+      ort: e.target.value
+    }),
+    placeholder: formTarget === "aushilfe" ? "z. B. Augsburg" : "BSO"
+  })), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      gap: 10,
+      marginTop: 6
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    type: "submit",
+    style: styles.btnPrimary
+  }, "Ticket ausstellen"), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    style: styles.btnGhost,
+    onClick: () => setShowForm(false)
+  }, "Abbrechen")))), /*#__PURE__*/React.createElement(CastSearchSection, {
+    bso: bso,
+    gpt: gpt,
+    aushilfe: aushilfe
+  }), /*#__PURE__*/React.createElement(RepertoireSection, {
+    eyebrow: "Repertoire",
+    title: "Bayerische Staatsoper",
+    note: `${bsoTotal} Vorstellungen · nach Anzahl sortiert`,
+    list: bso,
+    expanded: expanded,
+    setExpanded: setExpanded
+  }), /*#__PURE__*/React.createElement(RepertoireSection, {
+    eyebrow: "Andere Institution",
+    title: "Gärtnerplatztheater (GPT)",
+    note: `${gptTotal} Vorstellungen · nicht Teil der BSO-Zahl`,
+    list: gpt,
+    expanded: expanded,
+    setExpanded: setExpanded
+  }), /*#__PURE__*/React.createElement(RepertoireSection, {
+    eyebrow: "Gastspiele",
+    title: "Aushilfe bei anderen Häusern",
+    note: `${aushilfeTotal} Vorstellungen · nicht Teil der BSO-Zahl`,
+    list: aushilfe,
+    expanded: expanded,
+    setExpanded: setExpanded
+  }), toast && /*#__PURE__*/React.createElement("div", {
+    style: styles.toast
+  }, toast));
 }
 function RepertoireSection({
   eyebrow,
@@ -13553,82 +13501,66 @@ function RepertoireSection({
   const [openDate, setOpenDate] = useState(null);
   if (!list || list.length === 0) return null;
   const sortedList = sortByFirst(list);
-  return /*#__PURE__*/_jsxDEV("section", {
-    style: styles.section,
-    children: [/*#__PURE__*/_jsxDEV(SectionTitle, {
-      eyebrow: eyebrow,
-      title: title,
-      note: note
-    }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-      style: styles.repList,
-      children: sortedList.map((p, i) => {
-        const normDates = (p.dates || []).map(normDate);
-        const rowKey = `${title}-${p.name}`;
-        return /*#__PURE__*/_jsxDEV("div", {
-          style: styles.repRow,
-          children: [/*#__PURE__*/_jsxDEV("button", {
-            style: styles.repRowBtn,
-            onClick: () => setExpanded(expanded === rowKey ? null : rowKey),
-            children: [/*#__PURE__*/_jsxDEV("span", {
-              style: styles.repRank,
-              children: String(i + 1).padStart(2, "0")
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: styles.repName,
-              children: p.name
-            }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-              style: styles.repCount,
-              children: [p.total, "×"]
-            }, void 0, true)]
-          }, void 0, true), expanded === rowKey && /*#__PURE__*/_jsxDEV("div", {
-            style: styles.repDetail,
-            children: [/*#__PURE__*/_jsxDEV("div", {
-              children: [fmtDate(p.first), " – ", fmtDate(p.last)]
-            }, void 0, true), p.note && /*#__PURE__*/_jsxDEV("div", {
-              style: {
-                opacity: 0.7,
-                fontStyle: "italic"
-              },
-              children: p.note
-            }, void 0, false), normDates.length > 0 && /*#__PURE__*/_jsxDEV("div", {
-              style: styles.dateList,
-              children: normDates.map(nd => {
-                const dateKey = `${rowKey}-${nd.date}`;
-                return /*#__PURE__*/_jsxDEV("div", {
-                  style: styles.dateRow,
-                  children: [/*#__PURE__*/_jsxDEV("button", {
-                    style: {
-                      ...styles.dateChipBtn,
-                      ...(nd.cast ? styles.dateChipHasCast : {})
-                    },
-                    onClick: () => nd.cast && setOpenDate(openDate === dateKey ? null : dateKey),
-                    children: [fmtDate(nd.date), nd.cast ? " · Besetzung ▾" : ""]
-                  }, void 0, true), openDate === dateKey && nd.cast && /*#__PURE__*/_jsxDEV("div", {
-                    style: styles.castList,
-                    children: nd.cast.map((c, ci) => /*#__PURE__*/_jsxDEV("div", {
-                      style: styles.castRow,
-                      children: [/*#__PURE__*/_jsxDEV("span", {
-                        style: styles.castRole,
-                        children: c.role
-                      }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-                        style: styles.castSinger,
-                        children: c.singer
-                      }, void 0, false)]
-                    }, ci, true))
-                  }, void 0, false)]
-                }, nd.date, true);
-              })
-            }, void 0, false), /*#__PURE__*/_jsxDEV("div", {
-              style: styles.venueChips,
-              children: Object.entries(p.venues).map(([v, n]) => /*#__PURE__*/_jsxDEV("span", {
-                style: styles.chip,
-                children: [v, " · ", n, "×"]
-              }, v, true))
-            }, void 0, false)]
-          }, void 0, true)]
-        }, p.name, true);
-      })
-    }, void 0, false)]
-  }, void 0, true);
+  return /*#__PURE__*/React.createElement("section", {
+    style: styles.section
+  }, /*#__PURE__*/React.createElement(SectionTitle, {
+    eyebrow: eyebrow,
+    title: title,
+    note: note
+  }), /*#__PURE__*/React.createElement("div", {
+    style: styles.repList
+  }, sortedList.map((p, i) => {
+    const normDates = (p.dates || []).map(normDate);
+    const rowKey = `${title}-${p.name}`;
+    return /*#__PURE__*/React.createElement("div", {
+      key: p.name,
+      style: styles.repRow
+    }, /*#__PURE__*/React.createElement("button", {
+      style: styles.repRowBtn,
+      onClick: () => setExpanded(expanded === rowKey ? null : rowKey)
+    }, /*#__PURE__*/React.createElement("span", {
+      style: styles.repRank
+    }, String(i + 1).padStart(2, "0")), /*#__PURE__*/React.createElement("span", {
+      style: styles.repName
+    }, p.name), /*#__PURE__*/React.createElement("span", {
+      style: styles.repCount
+    }, p.total, "×")), expanded === rowKey && /*#__PURE__*/React.createElement("div", {
+      style: styles.repDetail
+    }, /*#__PURE__*/React.createElement("div", null, fmtDate(p.first), " – ", fmtDate(p.last)), p.note && /*#__PURE__*/React.createElement("div", {
+      style: {
+        opacity: 0.7,
+        fontStyle: "italic"
+      }
+    }, p.note), normDates.length > 0 && /*#__PURE__*/React.createElement("div", {
+      style: styles.dateList
+    }, normDates.map(nd => {
+      const dateKey = `${rowKey}-${nd.date}`;
+      return /*#__PURE__*/React.createElement("div", {
+        key: nd.date,
+        style: styles.dateRow
+      }, /*#__PURE__*/React.createElement("button", {
+        style: {
+          ...styles.dateChipBtn,
+          ...(nd.cast ? styles.dateChipHasCast : {})
+        },
+        onClick: () => nd.cast && setOpenDate(openDate === dateKey ? null : dateKey)
+      }, fmtDate(nd.date), nd.cast ? " · Besetzung ▾" : ""), openDate === dateKey && nd.cast && /*#__PURE__*/React.createElement("div", {
+        style: styles.castList
+      }, nd.cast.map((c, ci) => /*#__PURE__*/React.createElement("div", {
+        key: ci,
+        style: styles.castRow
+      }, /*#__PURE__*/React.createElement("span", {
+        style: styles.castRole
+      }, c.role), /*#__PURE__*/React.createElement("span", {
+        style: styles.castSinger
+      }, c.singer)))));
+    })), /*#__PURE__*/React.createElement("div", {
+      style: styles.venueChips
+    }, Object.entries(p.venues).map(([v, n]) => /*#__PURE__*/React.createElement("span", {
+      key: v,
+      style: styles.chip
+    }, v, " · ", n, "×")))));
+  })));
 }
 function CastSearchSection({
   bso,
@@ -13661,91 +13593,76 @@ function CastSearchSection({
     index.forEach(r => set.add(r.singer));
     return set.size;
   }, [index]);
-  return /*#__PURE__*/_jsxDEV("section", {
-    style: styles.section,
-    children: [/*#__PURE__*/_jsxDEV(SectionTitle, {
-      eyebrow: "Personen-Suche",
-      title: "Mit wem stand ich wann auf der Bühne?",
-      note: `${index.length} erfasste Besetzungseinträge insgesamt (Mehrfachzählung je Vorstellung) · ${uniqueStagePartners} eindeutige Bühnenpartner:innen (ohne Dirigent/Regie) · ${uniqueAll} eindeutige Namen insgesamt`
-    }, void 0, false), /*#__PURE__*/_jsxDEV("input", {
-      style: styles.input,
-      placeholder: "Sängername eingeben …",
-      value: query,
-      onChange: e => setQuery(e.target.value)
-    }, void 0, false), q.length >= 2 && grouped.length === 0 && /*#__PURE__*/_jsxDEV("div", {
-      style: {
-        ...styles.sectionNote,
-        marginTop: 10
-      },
-      children: "Keine Treffer — für die meisten Termine ist noch keine Besetzung erfasst."
-    }, void 0, false), grouped.map(([singer, rows]) => /*#__PURE__*/_jsxDEV("div", {
-      style: styles.personCard,
-      children: [/*#__PURE__*/_jsxDEV("div", {
-        style: styles.personName,
-        children: singer
-      }, void 0, false), rows.map((r, i) => /*#__PURE__*/_jsxDEV("div", {
-        style: styles.personRow,
-        children: [/*#__PURE__*/_jsxDEV("span", {
-          style: {
-            fontStyle: "italic"
-          },
-          children: r.werk
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            opacity: 0.7
-          },
-          children: [" · ", r.role, " · "]
-        }, void 0, true), /*#__PURE__*/_jsxDEV("span", {
-          children: fmtDate(r.date)
-        }, void 0, false), /*#__PURE__*/_jsxDEV("span", {
-          style: {
-            opacity: 0.5
-          },
-          children: [" (", r.section, ")"]
-        }, void 0, true)]
-      }, i, true))]
-    }, singer, true))]
-  }, void 0, true);
+  return /*#__PURE__*/React.createElement("section", {
+    style: styles.section
+  }, /*#__PURE__*/React.createElement(SectionTitle, {
+    eyebrow: "Personen-Suche",
+    title: "Mit wem stand ich wann auf der Bühne?",
+    note: `${index.length} erfasste Besetzungseinträge insgesamt (Mehrfachzählung je Vorstellung) · ${uniqueStagePartners} eindeutige Bühnenpartner:innen (ohne Dirigent/Regie) · ${uniqueAll} eindeutige Namen insgesamt`
+  }), /*#__PURE__*/React.createElement("input", {
+    style: styles.input,
+    placeholder: "Sängername eingeben …",
+    value: query,
+    onChange: e => setQuery(e.target.value)
+  }), q.length >= 2 && grouped.length === 0 && /*#__PURE__*/React.createElement("div", {
+    style: {
+      ...styles.sectionNote,
+      marginTop: 10
+    }
+  }, "Keine Treffer — für die meisten Termine ist noch keine Besetzung erfasst."), grouped.map(([singer, rows]) => /*#__PURE__*/React.createElement("div", {
+    key: singer,
+    style: styles.personCard
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.personName
+  }, singer), rows.map((r, i) => /*#__PURE__*/React.createElement("div", {
+    key: i,
+    style: styles.personRow
+  }, /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontStyle: "italic"
+    }
+  }, r.werk), /*#__PURE__*/React.createElement("span", {
+    style: {
+      opacity: 0.7
+    }
+  }, " · ", r.role, " · "), /*#__PURE__*/React.createElement("span", null, fmtDate(r.date)), /*#__PURE__*/React.createElement("span", {
+    style: {
+      opacity: 0.5
+    }
+  }, " (", r.section, ")"))))));
 }
 function SectionTitle({
   eyebrow,
   title,
   note
 }) {
-  return /*#__PURE__*/_jsxDEV("div", {
-    style: styles.sectionTitleWrap,
-    children: [/*#__PURE__*/_jsxDEV("span", {
-      style: styles.eyebrowSmall,
-      children: eyebrow
-    }, void 0, false), /*#__PURE__*/_jsxDEV("h2", {
-      style: styles.sectionTitle,
-      children: title
-    }, void 0, false), note && /*#__PURE__*/_jsxDEV("span", {
-      style: styles.sectionNote,
-      children: note
-    }, void 0, false)]
-  }, void 0, true);
+  return /*#__PURE__*/React.createElement("div", {
+    style: styles.sectionTitleWrap
+  }, /*#__PURE__*/React.createElement("span", {
+    style: styles.eyebrowSmall
+  }, eyebrow), /*#__PURE__*/React.createElement("h2", {
+    style: styles.sectionTitle
+  }, title), note && /*#__PURE__*/React.createElement("span", {
+    style: styles.sectionNote
+  }, note));
 }
 function SaveIndicator({
   state
 }) {
   const label = state === "saving" ? "Speichert …" : state === "saved" ? "Gespeichert" : "";
-  if (!label) return /*#__PURE__*/_jsxDEV("span", {
+  if (!label) return /*#__PURE__*/React.createElement("span", {
     style: {
       height: 14
     }
-  }, void 0, false);
-  return /*#__PURE__*/_jsxDEV("span", {
-    style: styles.saveIndicator,
-    children: label
-  }, void 0, false);
+  });
+  return /*#__PURE__*/React.createElement("span", {
+    style: styles.saveIndicator
+  }, label);
 }
 function FontImports() {
-  return /*#__PURE__*/_jsxDEV("style", {
-    children: `
+  return /*#__PURE__*/React.createElement("style", null, `
       @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
-    `
-  }, void 0, false);
+    `);
 }
 const PALETTE = {
   curtain: "#2A0E14",
