@@ -13441,7 +13441,7 @@ const SEED_AUSHILFE = [{
   name: "Lohengrin (Augsburg)",
   total: 11,
   first: "2014-05-03",
-  last: null,
+  last: "2014-12-27",
   venues: {
     Augsburg: 11
   },
@@ -13467,8 +13467,11 @@ const SEED_AUSHILFE = [{
       singer: "unbekannt"
     }],
     note: "Premiere (Kalender: 'Hausdebut' notiert); großer eigens gebildeter Projektchor (90 Personen) für diese Choroper-Produktion — passt zur Aushilfe-Tätigkeit"
-  }, "2014-05-08", "2014-05-18", "2014-05-21"],
-  note: "Korrigiert 23.8.2026 anhand Burkhards eigenem Kalender: 4 von 11 Terminen belegt (3./8./18./21.5.2014). Restliche Kalendereinträge im April 2014 waren nachweislich nur Proben (BO1/BO3/BO5/OHP/GP), keine echten Vorstellungen. UNGEKLÄRTE DISKREPANZ: Kalender wurde für den kompletten Zeitraum Mai 2014 bis August 2015 (16 Monate, Monat für Monat) durchsucht — keine weiteren Lohengrin-Termine gefunden außer den genannten 4. Auf Burkhards ausdrücklichen Wunsch bleibt die Gesamtzahl dennoch bei 11 (ursprünglich so notiert), die verbleibenden 7 Termine sind als ungeklärt zu betrachten — evtl. nicht im digitalen Kalender erfasst, oder die ursprüngliche Zahl 11 war zu hoch angesetzt. Weder öffentliches Archiv noch Kalender können das klären."
+  }, "2014-05-08", "2014-05-18", "2014-05-21", "2014-05-25", "2014-05-29", {
+    date: "2014-11-02",
+    note: "Wiederaufnahme (WA), Saison 2014/2015"
+  }, "2014-11-22", "2014-12-05", "2014-12-12", "2014-12-27"],
+  note: "Endgültig geklärt 23.8.2026 durch Burkhards Upload zweier offizieller Theater-Augsburg-Probenpläne: Premierenserie ('Endproben') mit exakt 6 Vorstellungen (3.5. Premiere + 8./18./21./25./29.5.2014) UND Wiederaufnahme ('WA. Saison 2014/2015') mit 5 weiteren Vorstellungen (2.11. WA-Termin + 22.11., 5.12., 12.12., 27.12.2014). Zusammen ergeben sich exakt 11 Termine — die ursprünglich notierte Zahl war die ganze Zeit korrekt. Auffällig: keiner der 5 Wiederaufnahme-Termine (Nov/Dez 2014) fand sich in Burkhards digitalem Kalender trotz Suche über 16 Monate — offenbar wurden diese Termine dort nicht eingetragen. Besetzung nur für Premiere (Presse) bekannt; für alle 10 weiteren Termine keine Cast-Angaben."
 }, {
   name: "Lohengrin (St. Gallen)",
   total: 7,
@@ -13564,7 +13567,7 @@ const SEED_AUSHILFE = [{
    offiziellen BSO-Spielplan geprüft und sind bereits in den Werk-Totals oben
    verrechnet (Nabucco +4, Parsifal +3, Il Trovatore +5, Turandot +7). */
 const SEED_CANDIDATES = [];
-const STORAGE_KEY = "opern-tracker-v52";
+const STORAGE_KEY = "opern-tracker-v54";
 const fmtDate = iso => {
   if (!iso) return "—";
   const [y, m, d] = iso.split("-");
