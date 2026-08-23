@@ -13567,7 +13567,7 @@ const SEED_AUSHILFE = [{
    offiziellen BSO-Spielplan geprüft und sind bereits in den Werk-Totals oben
    verrechnet (Nabucco +4, Parsifal +3, Il Trovatore +5, Turandot +7). */
 const SEED_CANDIDATES = [];
-const STORAGE_KEY = "opern-tracker-v54";
+const STORAGE_KEY = "opern-tracker-v55";
 const fmtDate = iso => {
   if (!iso) return "—";
   const [y, m, d] = iso.split("-");
@@ -13581,12 +13581,49 @@ const normDate = d => typeof d === "string" ? {
   cast: null
 } : d;
 const todayIso = () => new Date().toISOString().slice(0, 10);
+
+/* Opernjahr / Spielzeit: läuft vom 15. September bis 1. August des Folgejahres.
+   Termine vom 2. August bis 14. September fallen in die spielfreie Zeit und
+   werden der zuletzt beendeten Spielzeit zugeschlagen. */
+const getOpernjahr = iso => {
+  if (!iso || !/^\d{4}-\d{2}-\d{2}/.test(iso)) return null;
+  const [y, m, d] = iso.split("-").map(x => parseInt(x, 10));
+  if (m > 9 || m === 9 && d >= 15) return `${y}/${y + 1}`;
+  if (m < 8 || m === 8 && d <= 1) return `${y - 1}/${y}`;
+  return `${y - 1}/${y}`; // 2.8.–14.9.: spielfreie Zeit, an vorherige Spielzeit angehängt
+};
 const sortByFirst = arr => [...arr].sort((a, b) => {
   if (!a.first && !b.first) return 0;
   if (!a.first) return 1;
   if (!b.first) return -1;
   return a.first.localeCompare(b.first);
 });
+
+/* Build a flat list of EVERY einzeln datierten Vorstellung (mit oder ohne
+   Besetzung) über alle drei Häuser hinweg — Basis für die Opernjahr-Ansicht. */
+function buildAllPerformances(bso, gpt, aushilfe) {
+  const rows = [];
+  const scan = (list, section) => {
+    (list || []).forEach(p => {
+      (p.dates || []).forEach(d => {
+        const nd = normDate(d);
+        if (nd.date) {
+          rows.push({
+            section,
+            werk: p.name,
+            date: nd.date,
+            cast: nd.cast || null,
+            note: nd.note || null
+          });
+        }
+      });
+    });
+  };
+  scan(bso, "BSO");
+  scan(gpt, "GPT");
+  scan(aushilfe, "Aushilfe");
+  return rows;
+}
 
 /* Build a flat, searchable list of every (Sänger, Rolle, Werk, Datum) we
    have cast data for, across all three sections. */
@@ -13647,6 +13684,7 @@ function OpernTracker() {
   const [loading, setLoading] = useState(true);
   const [saveState, setSaveState] = useState("idle");
   const [expanded, setExpanded] = useState(null);
+  const [expandedSeason, setExpandedSeason] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [formTarget, setFormTarget] = useState("bso");
   const [form, setForm] = useState({
@@ -13950,6 +13988,12 @@ function OpernTracker() {
     bso: bso,
     gpt: gpt,
     aushilfe: aushilfe
+  }), /*#__PURE__*/React.createElement(SeasonSection, {
+    bso: bso,
+    gpt: gpt,
+    aushilfe: aushilfe,
+    expandedSeason: expandedSeason,
+    setExpandedSeason: setExpandedSeason
   }), /*#__PURE__*/React.createElement(RepertoireSection, {
     eyebrow: "Repertoire",
     title: "Bayerische Staatsoper",
@@ -14046,6 +14090,78 @@ function RepertoireSection({
       style: styles.chip
     }, v, " · ", n, "×")))));
   })));
+}
+function SeasonSection({
+  bso,
+  gpt,
+  aushilfe,
+  expandedSeason,
+  setExpandedSeason
+}) {
+  const allPerformances = useMemo(() => buildAllPerformances(bso, gpt, aushilfe), [bso, gpt, aushilfe]);
+  const [openDate, setOpenDate] = useState(null);
+  const bySeason = useMemo(() => {
+    const map = new Map();
+    allPerformances.forEach(row => {
+      const season = getOpernjahr(row.date);
+      if (!season) return;
+      if (!map.has(season)) map.set(season, []);
+      map.get(season).push(row);
+    });
+    map.forEach(rows => rows.sort((a, b) => a.date.localeCompare(b.date)));
+    return Array.from(map.entries()).sort((a, b) => b[0].localeCompare(a[0]));
+  }, [allPerformances]);
+  if (bySeason.length === 0) return null;
+  return /*#__PURE__*/React.createElement("section", {
+    style: styles.section
+  }, /*#__PURE__*/React.createElement(SectionTitle, {
+    eyebrow: "Chronologie",
+    title: "Alle Termine nach Opernjahr",
+    note: `${allPerformances.length} datierte Vorstellungen über alle Häuser (BSO, GPT, Aushilfe) · Spielzeit 15.9.–1.8.`
+  }), /*#__PURE__*/React.createElement("div", {
+    style: styles.repList
+  }, bySeason.map(([season, rows]) => /*#__PURE__*/React.createElement("div", {
+    key: season,
+    style: styles.repRow
+  }, /*#__PURE__*/React.createElement("button", {
+    style: styles.repRowBtn,
+    onClick: () => setExpandedSeason(expandedSeason === season ? null : season)
+  }, /*#__PURE__*/React.createElement("span", {
+    style: styles.repRank
+  }, season), /*#__PURE__*/React.createElement("span", {
+    style: styles.repName
+  }, "Spielzeit ", season), /*#__PURE__*/React.createElement("span", {
+    style: styles.repCount
+  }, rows.length, "×")), expandedSeason === season && /*#__PURE__*/React.createElement("div", {
+    style: styles.repDetail
+  }, /*#__PURE__*/React.createElement("div", {
+    style: styles.dateList
+  }, rows.map(row => {
+    const dateKey = `${season}-${row.date}-${row.werk}`;
+    return /*#__PURE__*/React.createElement("div", {
+      key: dateKey,
+      style: styles.dateRow
+    }, /*#__PURE__*/React.createElement("button", {
+      style: {
+        ...styles.dateChipBtn,
+        ...(row.cast ? styles.dateChipHasCast : {})
+      },
+      onClick: () => row.cast && setOpenDate(openDate === dateKey ? null : dateKey)
+    }, fmtDate(row.date), " · ", row.werk, /*#__PURE__*/React.createElement("span", {
+      style: {
+        opacity: 0.55
+      }
+    }, " (", row.section, ")"), row.cast ? " · Besetzung ▾" : ""), openDate === dateKey && row.cast && /*#__PURE__*/React.createElement("div", {
+      style: styles.castList
+    }, row.cast.map((c, ci) => /*#__PURE__*/React.createElement("div", {
+      key: ci,
+      style: styles.castRow
+    }, /*#__PURE__*/React.createElement("span", {
+      style: styles.castRole
+    }, c.role), /*#__PURE__*/React.createElement("span", {
+      style: styles.castSinger
+    }, c.singer)))));
+  })))))));
 }
 function CastSearchSection({
   bso,
