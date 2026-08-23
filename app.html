@@ -11600,6 +11600,139 @@ const SEED_BSO = [{
   }],
   note: "Vollständig recherchiert 22.8.2026: alle 7 BSO-Termine — Dmitri-Tcherniakov-Neuinszenierung (Münchner Erstaufführung, Premiere 5.3.2023, Koproduktion mit dem Gran Teatre del Liceu Barcelona; von OPERNWELT zur 'Aufführung des Jahres' gekürt). Sehr großes Ensemble (70+ Solist:innen); hier nur Hauptpartien dokumentiert. 5 Termine März 2023 (durchgängig identisch) + 2 Termine Jul 2023 (Wiederaufnahme, Umbesetzungen Graf Ilja Rostow/Balaga/Französischer Abbé)"
 }, {
+  name: "Idomeneo",
+  total: 4,
+  first: "2021-07-19",
+  last: "2021-07-26",
+  venues: {
+    "BSO (Prinzregententheater)": 4
+  },
+  dates: [{
+    date: "2021-07-19",
+    cast: [{
+      role: "Idomeneo",
+      singer: "Matthew Polenzani"
+    }, {
+      role: "Idamante",
+      singer: "Emily D'Angelo"
+    }, {
+      role: "Ilia",
+      singer: "Olga Kulchynska"
+    }, {
+      role: "Elettra",
+      singer: "Hanna-Elisabeth Müller"
+    }, {
+      role: "Arbace",
+      singer: "Martin Mitterrutzner"
+    }, {
+      role: "Oberpriester Poseidons",
+      singer: "Caspar Singh"
+    }, {
+      role: "Die Stimme (Orakel)",
+      singer: "Callum Thorpe"
+    }, {
+      role: "Dirigent",
+      singer: "Constantinos Carydis"
+    }, {
+      role: "Regie",
+      singer: "Antú Romero Nunes"
+    }],
+    note: "Premiere; Opernfestspiele München"
+  }, {
+    date: "2021-07-22",
+    cast: [{
+      role: "Idomeneo",
+      singer: "Matthew Polenzani"
+    }, {
+      role: "Idamante",
+      singer: "Emily D'Angelo"
+    }, {
+      role: "Ilia",
+      singer: "Olga Kulchynska"
+    }, {
+      role: "Elettra",
+      singer: "Hanna-Elisabeth Müller"
+    }, {
+      role: "Arbace",
+      singer: "Martin Mitterrutzner"
+    }, {
+      role: "Oberpriester Poseidons",
+      singer: "Caspar Singh"
+    }, {
+      role: "Die Stimme (Orakel)",
+      singer: "Callum Thorpe"
+    }, {
+      role: "Dirigent",
+      singer: "Gabriel Venzago"
+    }, {
+      role: "Regie",
+      singer: "Antú Romero Nunes"
+    }],
+    note: "Umbesetzung Dirigent: Gabriel Venzago statt Constantinos Carydis"
+  }, {
+    date: "2021-07-24",
+    cast: [{
+      role: "Idomeneo",
+      singer: "Matthew Polenzani"
+    }, {
+      role: "Idamante",
+      singer: "Emily D'Angelo"
+    }, {
+      role: "Ilia",
+      singer: "Olga Kulchynska"
+    }, {
+      role: "Elettra",
+      singer: "Hanna-Elisabeth Müller"
+    }, {
+      role: "Arbace",
+      singer: "Martin Mitterrutzner"
+    }, {
+      role: "Oberpriester Poseidons",
+      singer: "Caspar Singh"
+    }, {
+      role: "Die Stimme (Orakel)",
+      singer: "Callum Thorpe"
+    }, {
+      role: "Dirigent",
+      singer: "Constantinos Carydis"
+    }, {
+      role: "Regie",
+      singer: "Antú Romero Nunes"
+    }],
+    note: "STAATSOPER.TV-Übertragung"
+  }, {
+    date: "2021-07-26",
+    cast: [{
+      role: "Idomeneo",
+      singer: "Matthew Polenzani"
+    }, {
+      role: "Idamante",
+      singer: "Emily D'Angelo"
+    }, {
+      role: "Ilia",
+      singer: "Olga Kulchynska"
+    }, {
+      role: "Elettra",
+      singer: "Hanna-Elisabeth Müller"
+    }, {
+      role: "Arbace",
+      singer: "Martin Mitterrutzner"
+    }, {
+      role: "Oberpriester Poseidons",
+      singer: "Caspar Singh"
+    }, {
+      role: "Die Stimme (Orakel)",
+      singer: "Callum Thorpe"
+    }, {
+      role: "Dirigent",
+      singer: "Constantinos Carydis"
+    }, {
+      role: "Regie",
+      singer: "Antú Romero Nunes"
+    }]
+  }],
+  note: "Vollständig recherchiert 23.8.2026: nur die Premierenstaffel Juli 2021 im Prinzregententheater (Opernfestspiele München) — Antú-Romero-Nunes-Neuinszenierung, Bühne Phyllida Barlow. Alle 4 Termine einzeln auf staatsoper.de verifiziert (19./22./24./26.7.2021), inkl. Umbesetzung Dirigent am 22.7. (Venzago statt Carydis). Die spätere Wiederaufnahme 2023/2024 im Nationaltheater (5 weitere Termine, komplett neue Besetzung unter Christopher Moulds) ist NICHT erfasst — Burkhard war dabei nicht beteiligt."
+}, {
   name: "Die Teufel von Loudun",
   total: 5,
   first: "2022-06-27",
@@ -13391,7 +13524,7 @@ const SEED_AUSHILFE = [{
    offiziellen BSO-Spielplan geprüft und sind bereits in den Werk-Totals oben
    verrechnet (Nabucco +4, Parsifal +3, Il Trovatore +5, Turandot +7). */
 const SEED_CANDIDATES = [];
-const STORAGE_KEY = "opern-tracker-v48";
+const STORAGE_KEY = "opern-tracker-v49";
 const fmtDate = iso => {
   if (!iso) return "—";
   const [y, m, d] = iso.split("-");
