@@ -13438,14 +13438,12 @@ const SEED_GPT = [{
   note: "Korrigiert 23.8.2026 nach Rücksprache mit Burkhard: Termine sind 17./19./20./22./23./27./28./30. Dezember 2015 — explizit OHNE Silvester (31.12.) und ohne die beiden Januar-2016-Termine, die laut Pressequelle (IOCO) zur selben Produktion gehörten. Nur Premierenbesetzung (17.12.) mit Quellenbeleg; für die übrigen 7 Termine keine Cast-Angaben gefunden."
 }];
 const SEED_AUSHILFE = [{
-  name: "Lohengrin",
-  total: 20,
-  first: null,
+  name: "Lohengrin (Augsburg)",
+  total: 11,
+  first: "2014-05-03",
   last: null,
   venues: {
-    Augsburg: 11,
-    "St. Gallen": 7,
-    Ulm: 2
+    Augsburg: 11
   },
   dates: [{
     date: "2014-05-03",
@@ -13468,8 +13466,18 @@ const SEED_AUSHILFE = [{
       role: "Regie",
       singer: "unbekannt"
     }],
-    note: "Premiere Theater Augsburg (Kalender: 'Hausdebut' notiert); großer eigens gebildeter Projektchor (90 Personen) für diese Choroper-Produktion — passt zur Aushilfe-Tätigkeit"
-  }, "2014-05-08", "2014-05-18", "2014-05-21", {
+    note: "Premiere (Kalender: 'Hausdebut' notiert); großer eigens gebildeter Projektchor (90 Personen) für diese Choroper-Produktion — passt zur Aushilfe-Tätigkeit"
+  }, "2014-05-08", "2014-05-18", "2014-05-21"],
+  note: "Korrigiert 23.8.2026 anhand Burkhards eigenem Kalender: 4 von 11 Terminen belegt (3./8./18./21.5.2014). Restliche Kalendereinträge im April 2014 waren nachweislich nur Proben (BO1/BO3/BO5/OHP/GP), keine echten Vorstellungen. 7 weitere Termine bis Produktionsende nicht auffindbar (kein öffentliches Archiv, keine weiteren Kalendereinträge)."
+}, {
+  name: "Lohengrin (St. Gallen)",
+  total: 7,
+  first: "2016-10-22",
+  last: "2017-01-07",
+  venues: {
+    "St. Gallen": 7
+  },
+  dates: [{
     date: "2016-10-22",
     cast: [{
       role: "Lohengrin",
@@ -13487,8 +13495,18 @@ const SEED_AUSHILFE = [{
       role: "Regie",
       singer: "Vincent Boussard"
     }],
-    note: "Premiere Theater St. Gallen; erste Lohengrin-Aufführung des Hauses seit 1912"
-  }, "2016-10-30", "2016-11-04", "2016-11-13", "2016-11-27", "2016-12-03", "2017-01-07", {
+    note: "Premiere; erste Lohengrin-Aufführung des Hauses seit 1912"
+  }, "2016-10-30", "2016-11-04", "2016-11-13", "2016-11-27", "2016-12-03", "2017-01-07"],
+  note: "Recherchiert 23.8.2026: alle 7 Termine laut Presse (22.10./30.10./4.11./13.11./27.11.2016, 3.12.2016, 7.1.2017), aber im eigenen Kalender nicht auffindbar. Nur Premierenbesetzung belegt, für die übrigen 6 Termine keine Cast-Angaben gefunden."
+}, {
+  name: "Lohengrin (Ulm)",
+  total: 2,
+  first: "2016-04-02",
+  last: "2016-05-15",
+  venues: {
+    Ulm: 2
+  },
+  dates: [{
     date: "2016-04-02",
     cast: [{
       role: "Lohengrin",
@@ -13515,7 +13533,7 @@ const SEED_AUSHILFE = [{
       role: "Regie",
       singer: "Matthias Kaiser"
     }],
-    note: "Burkhards Hausdebut Theater Ulm (Kalender: 'No. 21 - Hausdebut'); allgemeine Hauspremiere der Produktion war bereits am 24.3.2016, Burkhards erster Termin aber erst 2.4."
+    note: "Burkhards Hausdebut (Kalender: 'No. 21 - Hausdebut'); allgemeine Hauspremiere der Produktion war bereits am 24.3.2016, Burkhards erster Termin aber erst 2.4."
   }, {
     date: "2016-05-15",
     cast: [{
@@ -13539,14 +13557,14 @@ const SEED_AUSHILFE = [{
     }],
     note: "Kalender: 'No. 22'; Besetzung wie 2.4. angenommen, nicht einzeln verifiziert"
   }],
-  note: "Korrigiert 23.8.2026 anhand Burkhards eigenem Kalender: Augsburg jetzt mit 4 von 11 Terminen belegt (3./8./18./21.5.2014 — restliche Kalendereinträge im April waren nachweislich nur Proben: BO1/BO3/BO5/OHP/GP, keine echten Vorstellungen). Ulm jetzt mit beiden Terminen exakt belegt (2.4. und 15.5.2016) — WICHTIGE KORREKTUR: Burkhards persönliches Hausdebut war der 2.4.2016, nicht der 24.3.2016 (das war nur die allgemeine Terminpremiere der Produktion, ohne ihn). St. Gallen: 7 Termine (22.10./30.10./4.11./13.11./27.11.2016, 3.12.2016, 7.1.2017) laut Presse, aber im Kalender nicht auffindbar — nur Premierenbesetzung belegt. Für Augsburg fehlen weiterhin 7 Termine, für St. Gallen 6 Termine (nur Cast der jeweiligen Premiere bekannt)."
+  note: "Beide Termine exakt aus Burkhards eigenem Kalender bestätigt (2.4. und 15.5.2016)."
 }];
 
 /* Alle 19 seit dem 30.12.2025 gefundenen Vorstellungen wurden gegen den
    offiziellen BSO-Spielplan geprüft und sind bereits in den Werk-Totals oben
    verrechnet (Nabucco +4, Parsifal +3, Il Trovatore +5, Turandot +7). */
 const SEED_CANDIDATES = [];
-const STORAGE_KEY = "opern-tracker-v50";
+const STORAGE_KEY = "opern-tracker-v51";
 const fmtDate = iso => {
   if (!iso) return "—";
   const [y, m, d] = iso.split("-");
